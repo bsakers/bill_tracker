@@ -1,6 +1,12 @@
 import React from 'react';
 
 const BillsTable= (props) => {
+  let paid
+  if (props.paid) {
+    paid = "yes"
+  } else {
+    paid = "no"
+  }
 
   return(
     <tr>
@@ -8,7 +14,7 @@ const BillsTable= (props) => {
       <td> {props.bill.due_date} </td>
       <td> {props.bill.cost} </td>
       <td> {props.bill.source} </td>
-      <td> {props.bill.paid} </td>
+      <td> {paid} </td>
     </tr>
   )
 }
