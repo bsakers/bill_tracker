@@ -43,6 +43,16 @@ class PatientsIndexContainer extends Component {
 
     return (
       <div>
+        <div className="curveToggle">
+          <a data-dropdown="drop2" aria-controls="drop2" aria-expanded="false">Select Bills to View</a>
+          <div id="drop2" data-dropdown-content className="f-dropdown content" aria-hidden="true" tabIndex="-1">
+            <p>Unpaid Bills for this Month</p>
+            <p>All Bills for this month (paid and unpaid)</p>
+            <p>Unpaid Bills for All Months</p>
+          </div>
+        </div>
+
+
         <table className="billsTable">
           <thead>
             <tr>
