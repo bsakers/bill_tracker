@@ -2,7 +2,7 @@ import React from 'react';
 
 const BillsTable= (props) => {
   let paid
-  if (props.paid) {
+  if (props.bill.paid) {
     paid = "yes"
   } else {
     paid = "no"
