@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import BillsTable from '../components/BillsTable';
+import { Link } from 'react-router';
+import NewBillContainer from './NewBillContainer';
 
 class PatientsIndexContainer extends Component {
   constructor(props){
@@ -86,6 +88,8 @@ class PatientsIndexContainer extends Component {
             {billRows}
           </tbody>
         </table>
+
+        <Link to={`/bills/new`}>Add New Bill</Link>
       </div>
     );
   }

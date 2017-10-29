@@ -7,7 +7,6 @@ const BillsTable= (props) => {
   } else {
     paid = "no"
   }
-
   return(
     <tr>
       <td> {props.bill.name} </td>
