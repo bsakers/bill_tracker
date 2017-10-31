@@ -21,9 +21,9 @@ class Api::V1::BillsController < ApiController
     end
 
     bills = {
-      all_bills: bills,
-      all_bills_this_month: all_bills_this_month,
-      unpaid_this_month: unpaid_this_month
+      all_bills: bills.sort_by { |k| k[:due_date]},
+      all_bills_this_month: all_bills_this_month.sort_by { |k| k[:due_date]},
+      unpaid_this_month: unpaid_this_month.sort_by { |k| k[:due_date]}
     }
     render json: bills
   end
@@ -47,7 +47,7 @@ class Api::V1::BillsController < ApiController
     all_bills=[]
     all_bills_this_month= []
     unpaid_this_month= []
-    
+
     bills.each do |bill|
       if !bill.paid && current_date.month == bill.due_date.month
         all_bills_this_month << bill
