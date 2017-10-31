@@ -10,21 +10,43 @@ class PatientsIndexContainer extends Component {
       bills: [],
       selectedBills: []
     }
-    this.setBillsUnpaidThisMonth=this.setBillsUnpaidThisMonth.bind(this)
+    this.setBillsAll=this.setBillsAll.bind(this)
     this.setBillsAllThisMonth=this.setBillsAllThisMonth.bind(this)
-    this.setBillsUnpaidAllMonths=this.setBillsUnpaidAllMonths.bind(this)
+    this.setBillsUnpaidThisMonth=this.setBillsUnpaidThisMonth.bind(this)
+    this.changeBillPaidState=this.changeBillPaidState.bind(this)
+  }
+
+  setBillsAll(){
+    this.setState({ selectedBills: this.state.bills.all_bills })
+  }
+
+  setBillsAllThisMonth() {
+    this.setState({ selectedBills: this.state.bills.all_bills_this_month })
   }
 
   setBillsUnpaidThisMonth() {
     this.setState({ selectedBills: this.state.bills.unpaid_this_month })
   }
 
-  setBillsAllThisMonth() {
-    this.setState({ selectedBills: this.state.bills.all_this_month })
-  }
-
-  setBillsUnpaidAllMonths() {
-    this.setState({ selectedBills: this.state.bills.unpaid_all })
+  changeBillPaidState(billPayLoad){
+    fetch(`/api/v1/bills/${billPayLoad.id}`, {
+      credentials: 'same-origin',
+      method: 'PATCH'
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({ bills: body })
+      this.setState({ selectedBills: body.all_bills_this_month });
+    })
   }
 
   componentDidMount() {
@@ -42,9 +64,8 @@ class PatientsIndexContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        console.log(body)
         this.setState({ bills: body })
-        this.setState({ selectedBills: body.all_this_month });
+        this.setState({ selectedBills: body.all_bills_this_month });
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -58,6 +79,7 @@ class PatientsIndexContainer extends Component {
             key={index}
             rowIndex={index}
             bill={bill}
+            changeBillPaidState={this.changeBillPaidState}
           />
         )
       })
@@ -65,12 +87,12 @@ class PatientsIndexContainer extends Component {
 
     return (
       <div>
-        <div className="curveToggle">
+        <div className="billDropDown">
           <a data-dropdown="drop2" aria-controls="drop2" aria-expanded="false">Select Bills to View</a>
           <div id="drop2" data-dropdown-content className="f-dropdown content" aria-hidden="true" tabIndex="-1">
-            <p onClick={this.setBillsUnpaidThisMonth}>Unpaid Bills for this Month</p>
-            <p onClick={this.setBillsAllThisMonth}>All Bills for this month (paid and unpaid)</p>
-            <p onClick={this.setBillsUnpaidAllMonths}>Unpaid Bills for All Months</p>
+            <p onClick={this.setBillsAll}>All bills</p>
+            <p onClick={this.setBillsAllThisMonth}>All bills for this month (paid and unpaid)</p>
+            <p onClick={this.setBillsUnpaidThisMonth}>Unpaid bills for this month</p>
           </div>
         </div>
 

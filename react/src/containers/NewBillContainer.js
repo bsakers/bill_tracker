@@ -83,18 +83,6 @@ class NewBillContainer extends Component {
     }
   }
 
-
-
-  // finish the different fields for the form
-  // add validators HERE (not on back end)
-  // change the handleFormSubmit to build the payload
-  // use addNewBill to take the payload and fetch post it to the DB
-  // use react-forms et challenge as reference
-
-  // addNewBill() {
-  //
-  // }
-
   render() {
 
     return(
