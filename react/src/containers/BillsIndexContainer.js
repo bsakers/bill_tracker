@@ -87,7 +87,7 @@ class PatientsIndexContainer extends Component {
 
     return (
       <div>
-        <div className="curveToggle">
+        <div className="billDropDown">
           <a data-dropdown="drop2" aria-controls="drop2" aria-expanded="false">Select Bills to View</a>
           <div id="drop2" data-dropdown-content className="f-dropdown content" aria-hidden="true" tabIndex="-1">
             <p onClick={this.setBillsAll}>All bills</p>
