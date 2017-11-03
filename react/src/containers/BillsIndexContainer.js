@@ -87,16 +87,22 @@ class PatientsIndexContainer extends Component {
 
     return (
       <div>
-        <div className="billDropDown">
-          <a data-dropdown="drop2" aria-controls="drop2" aria-expanded="false">Select Bills to View</a>
-          <div id="drop2" data-dropdown-content className="f-dropdown content" aria-hidden="true" tabIndex="-1">
-            <p onClick={this.setBillsAll}>All bills</p>
-            <p onClick={this.setBillsAllThisMonth}>All bills for this month (paid and unpaid)</p>
-            <p onClick={this.setBillsUnpaidThisMonth}>Unpaid bills for this month</p>
+        <div className="row billButtons">
+          <div className="large-4 columns billDropDown">
+            <a data-dropdown="drop2" aria-controls="drop2" aria-expanded="false">Select Bills to View</a>
+            <div id="drop2" data-dropdown-content className="f-dropdown content" aria-hidden="true" tabIndex="-1">
+              <p onClick={this.setBillsAll}>All bills</p>
+              <p onClick={this.setBillsAllThisMonth}>All bills for this month (paid and unpaid)</p>
+              <p onClick={this.setBillsUnpaidThisMonth}>Unpaid bills for this month</p>
+            </div>
+          </div>
+          <div className="large-4 columns addNewBillLink">
+            <Link to={`/bills/new`}>Add New Bill</Link>
           </div>
         </div>
 
-        <table className="billsTable">
+
+        <table className="row billsTable">
           <thead>
             <tr>
               <th className="billName" width= "200">Bill</th>
@@ -111,7 +117,7 @@ class PatientsIndexContainer extends Component {
           </tbody>
         </table>
 
-        <Link to={`/bills/new`}>Add New Bill</Link>
+
       </div>
     );
   }

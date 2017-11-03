@@ -26,11 +26,27 @@ body {
   }
 }
 
+.billButtons{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 
 .billDropDown{
+  text-align: center;
+  border: 2px solid #D4D4D4;
   p{
     &:hover {
       cursor: pointer;
     }
   }
+}
+
+.addNewBillLink{
+  text-align: center;
+  border: 2px solid #D4D4D4;
+}
+
+nav a{
+  margin-right: 10px;
+  margin-left: 10px;
 }
