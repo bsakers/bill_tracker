@@ -89,38 +89,48 @@ class NewBillContainer extends Component {
       <div>
         <h2> New Bill Form </h2>
         <form onSubmit={this.handleFormSubmit}>
-          <label>Bill Name
-            <input
-              name='billName'
-              onChange={this.handleBillNameChange}
-              type='text'
-              value={this.state.billName}
-            />
-          </label>
-          <label>Bill Cost
-            <input
-              name='billCost'
-              onChange={this.handleBillCostChange}
-              type='number'
-              value={this.state.billCost}
-            />
-          </label>
-          <label>Bill Source (link to payment if applicable)
-            <input
-              name='billSource'
-              onChange={this.handleBillSourceChange}
-              type='url'
-              value={this.state.billSource}
-            />
-          </label>
-          <label>Bill Due Date
-            <input
-              name='billDueDate'
-              onChange={this.handleBillDueDateChange}
-              type='date'
-              value={this.state.billDueDate}
-            />
-          </label>
+          <div className="row billNameField">
+            <label>Bill Name
+              <input
+                name='billName'
+                onChange={this.handleBillNameChange}
+                type='text'
+                value={this.state.billName}
+              />
+            </label>
+          </div>
+          <div className="row billCostAndDueDate">
+            <div className="large-6 columns">
+              <label>Bill Cost
+                <input
+                  name='billCost'
+                  onChange={this.handleBillCostChange}
+                  type='number'
+                  value={this.state.billCost}
+                />
+              </label>
+            </div>
+            <div className="large-6 columns">
+              <label>Bill Due Date
+                <input
+                  name='billDueDate'
+                  onChange={this.handleBillDueDateChange}
+                  type='date'
+                  value={this.state.billDueDate}
+                />
+              </label>
+            </div>
+          </div>
+          <div className="row billSourceField">
+            <label>Bill Source (link to payment if applicable)
+              <input
+                name='billSource'
+                onChange={this.handleBillSourceChange}
+                type='url'
+                value={this.state.billSource}
+              />
+            </label>
+          </div>
           <div className="button-group">
             <input className="button" type="submit" value="Submit" />
           </div>

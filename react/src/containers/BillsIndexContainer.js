@@ -116,8 +116,6 @@ class PatientsIndexContainer extends Component {
             {billRows}
           </tbody>
         </table>
-
-
       </div>
     );
   }
