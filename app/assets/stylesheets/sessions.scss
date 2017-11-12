@@ -4,10 +4,62 @@
 
 @import "foundation";
 
+
+body {
+}
+
+
+.homePage {
+  text-align: center;
+  .signInButton {
+    margin-left: 350px;
+    margin-right: 350px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px solid #D4D4D4;
+    border-radius: 5px;
+    font-size: 150%;
+    background-color: #0B67AE;
+    a {
+      color: white !important;
+    }
+  }
+}
+
+.billButtons{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 .billDropDown{
+  text-align: center;
+  border: 2px solid #D4D4D4;
   p{
     &:hover {
       cursor: pointer;
     }
   }
+}
+
+.addNewBillLink{
+  text-align: center;
+  border: 2px solid #D4D4D4;
+}
+
+nav a{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.formFields, .newBillHeader{
+  width: 400px;
+}
+
+.button{
+  width: 400px;
+}
+
+.newBillHeader{
+  text-align: center;
+  color: #AA3939;
 }

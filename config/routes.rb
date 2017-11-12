@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   root to: "home#show"
 
+
   resources :bills, only: [:index, :new]
 
   namespace :api do
