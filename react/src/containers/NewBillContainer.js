@@ -50,28 +50,23 @@ class NewBillContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      console.log(body)
     })
   }
 
   handleBillNameChange(event){
     this.setState({ billName: event.target.value })
-    console.log(this.state.billName)
   }
 
   handleBillCostChange(event){
     this.setState({ billCost: event.target.value })
-    console.log(this.state.billCost)
   }
 
   handleBillSourceChange(event){
     this.setState({ billSource: event.target.value })
-    console.log(this.state.billCost)
   }
 
   handleBillDueDateChange(event){
     this.setState({ billDueDate: event.target.value })
-    console.log(this.state.billDueDate)
   }
 
   validateBillName(name){
@@ -87,9 +82,11 @@ class NewBillContainer extends Component {
 
     return(
       <div>
-        <h2 className="row header"> New Bill Form </h2>
+        <h2 className="row newBillHeader"> New Bill Form </h2>
         <form onSubmit={this.handleFormSubmit}>
+        <div className="row formFields">
           <div className="row billNameField">
+            <div className="large-12 columns">
             <label>Bill Name
               <input
                 name='billName'
@@ -99,8 +96,9 @@ class NewBillContainer extends Component {
               />
             </label>
           </div>
-          <div className="row billCostAndDueDate">
-            <div className="large-6 columns">
+          </div>
+          <div className="row costAndDueDateField">
+            <div className="large-6 columns billCost">
               <label>Bill Cost
                 <input
                   name='billCost'
@@ -110,7 +108,7 @@ class NewBillContainer extends Component {
                 />
               </label>
             </div>
-            <div className="large-6 columns">
+            <div className="large-6 columns billDueDate">
               <label>Bill Due Date
                 <input
                   name='billDueDate'
@@ -122,18 +120,23 @@ class NewBillContainer extends Component {
             </div>
           </div>
           <div className="row billSourceField">
-            <label>Bill Source (link to payment if applicable)
-              <input
-                name='billSource'
-                onChange={this.handleBillSourceChange}
-                type='url'
-                value={this.state.billSource}
-              />
-            </label>
+            <div className="large-12 columns">
+              <label>Bill Source (link to payment if applicable)
+                <input
+                  name='billSource'
+                  onChange={this.handleBillSourceChange}
+                  type='url'
+                  value={this.state.billSource}
+                />
+              </label>
+            </div>
           </div>
-          <div className="row button-group">
-            <input className="button" type="submit" value="Submit" />
+          <div className="row submitNewBill">
+            <div className="large-12 columns button-group ">
+              <input className="button" type="submit" value="Submit" />
+            </div>
           </div>
+        </div>
         </form>
       </div>
     )
