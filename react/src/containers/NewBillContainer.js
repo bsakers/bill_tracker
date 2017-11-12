@@ -87,7 +87,7 @@ class NewBillContainer extends Component {
 
     return(
       <div>
-        <h2> New Bill Form </h2>
+        <h2 className="row header"> New Bill Form </h2>
         <form onSubmit={this.handleFormSubmit}>
           <div className="row billNameField">
             <label>Bill Name
@@ -131,7 +131,7 @@ class NewBillContainer extends Component {
               />
             </label>
           </div>
-          <div className="button-group">
+          <div className="row button-group">
             <input className="button" type="submit" value="Submit" />
           </div>
         </form>
