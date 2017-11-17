@@ -41,6 +41,7 @@ body {
 }
 
 .billDropDown{
+  background-color: white;
   text-align: center;
   border: 2px solid #D4D4D4;
   p{
@@ -51,6 +52,7 @@ body {
 }
 
 .addNewBillLink{
+  background-color: white;
   text-align: center;
   border: 2px solid #D4D4D4;
 }
@@ -69,6 +71,8 @@ nav a{
 }
 
 .newBillHeader{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
-  color: #AA3939;
 }
