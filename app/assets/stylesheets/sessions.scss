@@ -3,13 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "foundation";
+@import "https://fonts.googleapis.com/css?family=Montserrat";
 
 
 body {
+  background: linear-gradient(45deg, #ff5050, #87CEFA);
 }
 
 
+
 .homePage {
+  h1, h3, h4{
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  padding-top: 150px;
   text-align: center;
   .signInButton {
     margin-left: 350px;
