@@ -14,7 +14,6 @@ class HomePageContainer extends Component {
   }
 
   render() {
-
     return(
       <div className="row align-center homePage">
         <h1>Bill Tracker</h1>
